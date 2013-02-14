@@ -1,0 +1,51 @@
+#!/usr/bin/make -f
+APP=stylom
+
+application = $(CURDIR)/$(APP)
+man_page = $(CURDIR)/man/$(APP).1.gz
+
+DEST_APP = $(CURDIR)/debian/$(APP)/usr/bin
+DEST_MAN = $(CURDIR)/debian/$(APP)/usr/share/man/man1
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
+build: build-stamp
+	gcc $(CFLAGS) $(LDFLAGS) $(CPPFLAGS) $(CXXFLAGS) -Wall -ansi -pedantic -O3 -o $(APP) src/*.c -Isrc -lm
+build-stamp:
+	dh_testdir
+	touch build-stamp
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	dh_clean
+install: build clean $(application) $(man_page)
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	mkdir -m 755 -p $(DEST_APP)
+	mkdir -m 755 -p $(DEST_MAN)
+	install -m 755 --strip $(application) $(DEST_APP)
+	install -m 644 $(man_page) $(DEST_MAN)
+binary-indep: build install
+	dh_shlibdeps
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples
+	dh_installman
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+binary-arch: build install
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

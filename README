@@ -1,0 +1,184 @@
+*stylom - A command line utility for stylometric text analysis*
+
+* _Description_
+
+This is a tool to facilitate the stylometric analysis of texts.  It could be used for academic disambiguation of disputed authorship, and to help identify plagiarists, astroturfers, sockpuppets and guerilla marketers.  Another possible use case is as an assistance to the anonymisation of writing style.
+
+Every author has their own unique writing style, and if enough writing examples are available then it's possible to construct a quantitative model of their style which can be compared against others.
+
+
+* _Installation_
+
+This program is easy to compile and install as follows:
+
+#+BEGIN_SRC sh
+  make
+  sudo make install
+#+END_SRC
+
+If you wish to generate a Debian package you can also run the following script:
+
+#+BEGIN_SRC sh
+  ./debian.sh
+#+END_SRC
+
+To plot graphs you will need to have gnuplot installed. For example:
+
+#+BEGIN_SRC sh
+  sudo apt-get install gnuplot
+#+END_SRC
+
+
+* _Generating Author Fingerprints_
+
+Fingerprints are high dimensional vectors which represent the writing style of particular authors.  To generate a fingerprint first gather some examples of the author's writing within plain text files and put them in a directory.  Then run something similar to the following:
+
+#+BEGIN_SRC sh
+  cat texts/dickens/* | stylom -n "Charles Dickens" -f > fingerprints/dickens.style
+#+END_SRC
+
+Here the texts get piped into the command and the resulting fingerprint is then saved to a file.  Ideally the amount of example text should be as large as possible.
+
+ 
+* _Matching Unknown Text_
+
+If you have a file containing a sample of text for which the author is unknown, but who is likely to be an author for which you have previously generated a fingerprint, you can find the most likely candidate in the following way:
+
+#+BEGIN_SRC sh
+  cat unknown.txt | stylom --match fingerprints
+#+END_SRC
+
+Where /fingerprints/ is the name of a directory containing previously saved fingerprints for a variety of possible authors.  This will return a single name, but it's also possible to return a list of candidates in the following way.
+
+#+BEGIN_SRC sh
+  cat unknown.txt | stylom --list fingerprints
+#+END_SRC
+
+
+* _Counter-Stylometry_
+
+Stylometrics have various legitimate uses in terms of the study of disputed historical texts or detecting plagiarism.  However, a possible danger of stylometric methods is their abuse by powerful organisations against bloggers or whistleblowers who may be trying to raise issues of public concern in an anonymous manner in order to avoid serious reprisals.
+
+A known method to render stylometry less effective in determining the identity of an author is to try to make the style of writing as similar as possible to some existing author, hence obscuring the differences.  Automatically transforming the writing style of a given text into the writing style of a known author is a very difficult and likely AI-complete problem, but this program can be used provide the writer with advice on how to alter their work to achieve a greater degree of similarity.
+
+#+BEGIN_SRC sh
+  cat mytext.txt | stylom -c fingerprints/charles_dickens.style
+#+END_SRC
+
+or
+
+#+BEGIN_SRC sh
+  stylom -t mytext.txt -c fingerprints/charles_dickens.style
+#+END_SRC
+
+Takes some text and compares it to a pre-computed fingerprint for Charles Dickens.  It then gives some indication of how to alter /mytext.txt/ in order to make it more similar to Dickens' writing style.  The number of differences is also shown, which can be used as an indicator of progress.
+
+If you are only interested in which words are present in /mytext.txt/ but missing from Dickens writing:
+
+#+BEGIN_SRC sh
+  cat mytext.txt | stylom --missing fingerprints/charles_dickens.style
+#+END_SRC
+
+or
+
+#+BEGIN_SRC sh
+  stylom -t mytext.txt --missing fingerprints/charles_dickens.style
+#+END_SRC
+
+The results could then be used by some other program (maybe highlighted in a text editor GUI).  The same can also be done for words which are more frequent within the fingerprint or less frequent within the fingerprint.
+
+#+BEGIN_SRC sh
+  cat mytext.txt | stylom --more fingerprints/charles_dickens.style
+#+END_SRC
+
+or
+
+#+BEGIN_SRC sh
+  cat mytext.txt | stylom --less fingerprints/charles_dickens.style
+#+END_SRC
+
+The above methods can be used to make the vocabulary and the word frequency similar to an existing known author.  It's not a perfect solution, since it takes no account of syntax, and it still involves mannual editing effort by the writer.
+
+
+* _Plotting Text Distributions_
+
+You can plot the distribution of fingerprints in the following way.
+
+#+BEGIN_SRC sh
+  stylom --plot <directory>
+#+END_SRC
+
+This plots any fingerprints within the given directory within a 2D graph so that you can see how authors are distributed.  The graph is saved by default with the filename /result.png/
+
+If necessary you can also specify a title for the graph.
+
+#+BEGIN_SRC sh
+ stylom --title "My Graph Title" --plot <directory>
+#+END_SRC
+
+You can also plot texts more directly without having previously calculated fingerprints for them.
+
+#+BEGIN_SRC sh
+ stylom --title "My Texts" --plottexts <directory>
+#+END_SRC
+
+
+* _Options_
+
+** -t,--text <string or filename>
+This can be either text to be analysed or a filename containing plain text.
+
+** -n,--name <author>
+The name of the author.
+
+** -f,--fingerprint
+Displays a fingerprint on the console in XML format.
+
+** -m,--match <directory>
+Match the given fingerprint against ones stored within a directory.
+
+** -l,--list <directory>
+Match the given fingerprint against ones stored within a directory and show a list of the most similar authors.
+
+** -c,--compare <fingerprint>
+Compares the current text against the given fingerprint and reports differences.
+
+** --missing <fingerprint>
+Report words which are present in the current text but which are missing from the given fingerprint.
+
+** --more <fingerprint>
+Report words which are present more frequently in the given fingerprint than in the current text.
+
+** --less <fingerprint>
+Report words which are present less frequently in the given fingerprint than in the current text.
+
+** -p,--plot <directory>
+Plots fingerprints within the given directory using gnuplot.  The resulting image is saved as /result.png/
+
+** --plottexts <directory>
+Plots texts within the given directory using gnuplot.  The resulting image is saved as /result.png/
+
+** --title <text>
+Specify a title for use together with the --plot option.
+
+** -v,--version
+Show the version number.
+
+** -h,--help
+Show help.
+
+
+* _Bugs_
+
+Report all bugs to /https://bugs.launchpad.net/stylom/
+
+
+* _Author_
+
+Bob Mottram <bob@sluggish.dyndns.org>
+
+GPG ID: 0xEA982E38
+
+GPG Fingerprint: D538 1159 CD7A 2F80 2F06  ABA0 0452 CC7C EA98 2E38
+
+http://sluggish.dyndns.org
