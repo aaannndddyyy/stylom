@@ -1,7 +1,4 @@
 <html>
-<head>
-<title><b>stylom - A command line utility for stylometric text analysis</b></title>
-</head>
 <body>
 <div id="content">
 
