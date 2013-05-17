@@ -14,7 +14,7 @@ License: GPL
 Group: Utilities
 SOURCE0 : %{name}-%{version}.tar.gz
 URL: http://launchpad.net/stylom/
-Packager: Bob Mottram <bob@sluggish.dyndns.org>
+Packager: Bob Mottram <bob@robotics.uk.to>
 Requires: gnuplot, libpng
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -46,6 +46,6 @@ rm -rf %{buildroot}
 %attr(644,root,root) /usr/share/man/man1/stylom.1.gz
 
 %changelog
-* Tue Jan 15 2013  Bob Mottram <bob@sluggish.dyndns.org> 0.1-1
+* Tue Jan 15 2013  Bob Mottram <bob@robotics.uk.to> 0.1-1
 - Spec file created
 

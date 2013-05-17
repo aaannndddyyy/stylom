@@ -469,7 +469,7 @@ Report all bugs to /<a href="https://bugs.launchpad.net/stylom/">https://bugs.la
 
 
 <p>
-Bob Mottram &lt;bob@sluggish.dyndns.org&gt;
+Bob Mottram &lt;bob@robotics.uk.to&gt;
 </p>
 <p>
 GPG ID: 0xEA982E38

@@ -1,7 +1,7 @@
 Source: stylom
 Section: contrib/utils
 Priority: extra
-Maintainer: Bob Mottram <bob@sluggish.dyndns.org>
+Maintainer: Bob Mottram <bob@robotics.uk.to>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.2
 Homepage: https://launchpad.net/stylom
