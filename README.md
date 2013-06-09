@@ -478,7 +478,7 @@ GPG ID: 0xEA982E38
 GPG Fingerprint: D538 1159 CD7A 2F80 2F06  ABA0 0452 CC7C EA98 2E38
 </p>
 <p>
-<a href="http://sluggish.dyndns.org">http://sluggish.dyndns.org</a>
+<a href="http://robotics.uk.to">http://robotics.uk.to</a>
 </p></div>
 </div>
 <div id="postamble">

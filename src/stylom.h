@@ -36,7 +36,7 @@
 #include <time.h>
 #include <ctype.h>
 
-#define VERSION                     1.00
+#define VERSION 1.00
 
 #define CONSOLE_WIDTH                80
 

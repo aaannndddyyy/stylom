@@ -1,12 +1,14 @@
-Format: http://dep.debian.net/deps/dep5
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: stylom
-Source: https://code.launchpad.net/stylom
+Source: https://github.com/fuzzgun/stylom
 
 Files: *
 Copyright: 2013 Bob Mottram <bob@robotics.uk.to>
+License: GPL-3.0+
 
 Files: debian/*
 Copyright: 2013 Bob Mottram <bob@robotics.uk.to>
+License: GPL-3.0+
 
 License: GPL-3.0+
  This program is free software: you can redistribute it and/or modify

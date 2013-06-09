@@ -2,8 +2,8 @@ Source: stylom
 Section: contrib/utils
 Priority: extra
 Maintainer: Bob Mottram <bob@robotics.uk.to>
-Build-Depends: debhelper (>= 8.0.0)
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9.0.0)
+Standards-Version: 3.9.4
 Homepage: https://launchpad.net/stylom
 Vcs-Bzr: https://code.launchpad.net/stylom
 Vcs-Browser: http://bazaar.launchpad.net/~fuzzgun/stylom/trunk/files
@@ -12,7 +12,7 @@ Vcs-Browser: http://bazaar.launchpad.net/~fuzzgun/stylom/trunk/files
 
 Package: stylom
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, gnuplot
+Depends: ${shlibs:Depends}, gnuplot
 Description: Command line utility for stylometric text analysis
  This is a tool to facilitate the stylometric analysis of texts.
  It could be used for academic disambiguation of disputed authorship,
