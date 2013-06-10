@@ -12,7 +12,7 @@ Vcs-Browser: http://bazaar.launchpad.net/~fuzzgun/stylom/trunk/files
 
 Package: stylom
 Architecture: any
-Depends: ${shlibs:Depends}, gnuplot
+Depends: ${shlibs:Depends}, ${misc:Depends}, gnuplot
 Description: Command line utility for stylometric text analysis
  This is a tool to facilitate the stylometric analysis of texts.
  It could be used for academic disambiguation of disputed authorship,
