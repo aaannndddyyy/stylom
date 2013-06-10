@@ -1,4 +1,4 @@
-*stylom - A command line utility for stylometric text analysis*
+#+TITLE: stylom - A command line utility for stylometric text analysis
 
 * _Description_
 
@@ -9,7 +9,13 @@ Every author has their own unique writing style, and if enough writing examples 
 
 * _Installation_
 
-This program is easy to compile and install as follows:
+The easiest way to install is from a pre-compiled package, a number of which are available at:
+
+#+BEGIN_SRC sh
+    https://build.opensuse.org/project/show?project=home%3Amotters%3Astylom
+#+END_SRC
+
+But if you prefer not to get involved with binaries then this program is pretty easy to compile and install as follows:
 
 #+BEGIN_SRC sh
   make
@@ -170,7 +176,7 @@ Show help.
 
 * _Bugs_
 
-Report all bugs to /https://bugs.launchpad.net/stylom/
+Report all bugs to /https://github.com/fuzzgun/stylom/issues/
 
 
 * _Author_
