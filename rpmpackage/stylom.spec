@@ -7,6 +7,7 @@ URL: https://github.com/fuzzgun/stylom
 Packager: Bob Mottram (4096 bits) <bob@robotics.uk.to>
 Source0: http://yourdomainname.com/src/%{name}_%{version}.orig.tar.gz
 Group: Utility/ConsoleOnly
+Requires: gnuplot
 
 %description
 Tool to facilitate the stylometric analysis of texts. It could be used for
