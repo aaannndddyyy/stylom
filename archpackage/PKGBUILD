@@ -1,0 +1,31 @@
+# Maintainer: Bob Mottram (4096 bits) <bob@robotics.uk.to>
+pkgname=stylom
+pkgver=1.00
+pkgrel=1
+pkgdesc="Tool to facilitate the stylometric analysis of texts. It could be used for academic disambiguation of disputed authorship, and to help identify plagiarists, astroturfers, sockpuppets and guerilla marketers. Another possible use case is as an assistance to the anonymisation of writing style.  Every author has their own unique writing style, and if enough writing examples are available then it's possible to construct a quantitative model of their style which can be compared against others."
+arch=('i686' 'x86_64')
+url="https://github.com/fuzzgun/stylom"
+license=('GPL3')
+groups=()
+depends=( 'gnuplot')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=($pkgname-$pkgver.tar.gz)
+noextract=()
+md5sums=()
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./configure --prefix=/usr
+  make
+}
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}

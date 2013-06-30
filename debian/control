@@ -1,24 +1,20 @@
 Source: stylom
-Section: contrib/utils
+Section: utils
 Priority: extra
 Maintainer: Bob Mottram (4096 bits) <bob@robotics.uk.to>
 Build-Depends: debhelper (>= 9.0.0)
 Standards-Version: 3.9.4
-Homepage: https://launchpad.net/stylom
-Vcs-Bzr: https://code.launchpad.net/stylom
-Vcs-Browser: http://bazaar.launchpad.net/~fuzzgun/stylom/trunk/files
-#Vcs-Git: git://git.debian.org/collab-maint/stylom.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/stylom.git;a=summary
+Homepage: https://github.com/fuzzgun/stylom
+Vcs-Git: https://github.com/fuzzgun/stylom.git
 
 Package: stylom
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, gnuplot
 Description: Command line utility for stylometric text analysis
- This is a tool to facilitate the stylometric analysis of texts.
- It could be used for academic disambiguation of disputed authorship,
- and to help identify plagiarists, astroturfers, sockpuppets and
- guerilla marketers. Another possible use case is as an assistance
- to the anonymisation of writing style.  Every author has their own
- unique writing style, and if enough writing examples are available
- then it's possible to construct a quantitative model of their
- style which can be compared against others.
+ Tool to facilitate the stylometric analysis of texts. It could be used for
+ academic disambiguation of disputed authorship, and to help identify
+ plagiarists, astroturfers, sockpuppets and guerilla marketers. Another
+ possible use case is as an assistance to the anonymisation of writing
+ style.  Every author has their own unique writing style, and if enough
+ writing examples are available then it's possible to construct a
+ quantitative model of their style which can be compared against others.
