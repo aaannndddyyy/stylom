@@ -36,21 +36,21 @@ mkdir ${PROJECTDIR}/usr/local/bin
 cp ${PROJECTDIR}/usr/bin/* ${PROJECTDIR}/usr/local/bin/
 
 # Copy the spec file into the build directory
-cp puppypackage/stylom-1.00.pet.specs ${PROJECTDIR}
+cp puppypackage/${APP}-${VERSION}.pet.specs ${PROJECTDIR}
 
 # Compress the build directory
 cd ${BUILDDIR}
-tar -c -f {APP}-${VERSION}-${RELEASE}.tar .
+tar -c -f ${APP}-${VERSION}-${RELEASE}.tar .
 sync
-gzip {APP}-${VERSION}-${RELEASE}.tar
-mv {APP}-${VERSION}-${RELEASE}.tar.gz ${CURRDIR}/puppypackage
+gzip ${APP}-${VERSION}-${RELEASE}.tar
+mv ${APP}-${VERSION}-${RELEASE}.tar.gz ${CURRDIR}/puppypackage
 cd ${CURRDIR}/puppypackage
 
 # Create the PET package
-MD5SUM="`md5sum {APP}-${VERSION}-${RELEASE}.tar.gz | cut -f 1 -d ' '`"
-echo -n "$MD5SUM" >> {APP}-${VERSION}-${RELEASE}.tar.gz
+MD5SUM="`md5sum ${APP}-${VERSION}-${RELEASE}.tar.gz | cut -f 1 -d ' '`"
+echo -n "$MD5SUM" >> ${APP}-${VERSION}-${RELEASE}.tar.gz
 sync
-mv -f {APP}-${VERSION}-${RELEASE}.tar.gz ${APP}-${VERSION}-${RELEASE}.pet
+mv -f ${APP}-${VERSION}-${RELEASE}.tar.gz ${APP}-${VERSION}-${RELEASE}.pet
 sync
 cd ${CURRDIR}
 
