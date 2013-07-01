@@ -27,16 +27,16 @@ make clean
 make
 make install -B DESTDIR=${PROJECTDIR}
 
-# create directories specific to puppy
+# Create directories specific to puppy
 mkdir ${PROJECTDIR}/usr
 mkdir ${PROJECTDIR}/usr/local
 mkdir ${PROJECTDIR}/usr/local/bin
 
-# copy anything in /usr/bin into /usr/local/bin
+# Copy anything in /usr/bin into /usr/local/bin
 cp ${PROJECTDIR}/usr/bin/* ${PROJECTDIR}/usr/local/bin/
 
 # Copy the spec file into the build directory
-cp puppypackage/${APP}-${VERSION}.pet.specs ${PROJECTDIR}
+cp ${CURRDIR}/puppypackage/${APP}-${VERSION}.pet.specs ${PROJECTDIR}
 
 # Compress the build directory
 cd ${BUILDDIR}
