@@ -1,5 +1,4 @@
 Source: stylom
-Section: utils
 Priority: extra
 Maintainer: Bob Mottram (4096 bits) <bob@robotics.uk.to>
 Build-Depends: debhelper (>= 9.0.0)
@@ -8,6 +7,7 @@ Homepage: https://github.com/fuzzgun/stylom
 Vcs-Git: https://github.com/fuzzgun/stylom.git
 
 Package: stylom
+Section: utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, gnuplot
 Description: Command line utility for stylometric text analysis

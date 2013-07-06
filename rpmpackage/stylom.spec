@@ -45,5 +45,5 @@ make install -B DESTDIR=%{buildroot}
 %{_mandir}/man1/*
 
 %changelog
-* Mon Jul 1 2013  Bob Mottram (4096 bits) <bob@robotics.uk.to>
+* Sat Jul 6 2013  Bob Mottram (4096 bits) <bob@robotics.uk.to>
 - Spec file created

@@ -14,8 +14,9 @@ sed -i 's/Version: '${PREV_VERSION}'/Version: '${VERSION}'/g' rpmpackage/${APP}.
 sed -i 's/Release: '${RELEASE}'/Release: '${RELEASE}'/g' rpmpackage/${APP}.spec
 sed -i 's/pkgrel='${RELEASE}'/pkgrel='${RELEASE}'/g' archpackage/PKGBUILD
 sed -i 's/pkgver='${PREV_VERSION}'/pkgver='${VERSION}'/g' archpackage/PKGBUILD
-sed -i "s/-${PREV_VERSION}-/-${VERSION}-/g" puppypackage/pet.specs
-sed -i "s/|${PREV_VERSION}|/|${VERSION}|/g" puppypackage/pet.specs
+sed -i "s/-${PREV_VERSION}-/-${VERSION}-/g" puppypackage/*.specs
+sed -i "s/|${PREV_VERSION}|/|${VERSION}|/g" puppypackage/*.specs
+sed -i 's/VERSION='${PREV_VERSION}'/VERSION='${VERSION}'/g' puppypackage/pinstall.sh puppypackage/puninstall.sh
 
 
 # Create the source code
